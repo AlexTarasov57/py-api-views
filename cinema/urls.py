@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 
+from cinema.models import Movie
 from cinema.views import (
     GenreList,
     GenreDetail,
@@ -28,7 +29,7 @@ cinema_hall_detail = CinemaHallViewSet.as_view(
 
 router = routers.DefaultRouter()
 
-router.register("movies", ModelViewSet, basename="movies")
+router.register("movies", MovieViewSet, basename="movies")
 
 
 urlpatterns = [
