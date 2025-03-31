@@ -2,15 +2,15 @@ from django.db import models
 
 
 class Actor(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.first_name
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
@@ -29,9 +29,8 @@ class Movie(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     duration = models.IntegerField()
-    actors = models.ManyToManyField(Actor)
-    genres = models.ManyToManyField(Genre)
-    cinema_halls = models.ManyToManyField(CinemaHall)
+    actors = models.ManyToManyField(Actor, related_name='actors')
+    genres = models.ManyToManyField(Genre, related_name='genres')
 
     def __str__(self):
         return self.title
