@@ -6,7 +6,7 @@ from cinema.views import (
     GenreDetail,
     ActorList,
     ActorDetail,
-    ModelViewSet,
+    MovieViewSet,
     CinemaHallViewSet
 )
 
