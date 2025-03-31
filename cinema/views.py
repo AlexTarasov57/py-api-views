@@ -62,7 +62,7 @@ class ActorList(
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
 
-    def get(self, request,  *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -88,12 +88,13 @@ class ActorDetail(
         return self.destroy(request, *args, **kwargs)
 
 
-class CinemaHallViewSet(mixins.ListModelMixin,
-   mixins.CreateModelMixin,
-   mixins.RetrieveModelMixin,
-   mixins.UpdateModelMixin,
-   mixins.DestroyModelMixin,
-   viewsets.GenericViewSet
+class CinemaHallViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet
 ):
     queryset = CinemaHall.objects.all()
     serializer_class = CinemaHallSerializer
